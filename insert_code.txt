@@ -1,0 +1,7 @@
+#include "../Communion/CommunicatorApplication.h"
+
+
+using namespace NS_Communion;
+
+CommunicatorApplication* comm = new CommunicatorApplication;
+application.push_back(comm);
