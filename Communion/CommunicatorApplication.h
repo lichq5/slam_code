@@ -13,6 +13,7 @@
 #include <Communication/Communicator.h>
 #include <Communication/DataType/DataTypes.h>
 #include <Communication/NetTranceiver.h>
+#include <Service/ServiceType/ResponseMap.h>
 
 namespace NS_Communion {
   using namespace NS_CommDataType;
@@ -20,6 +21,7 @@ namespace NS_Communion {
 
   class CommunicatorApplication: public Application, public NS_NaviCommon::Communicator
   {
+
     public:
 	  CommunicatorApplication();
 	  ~CommunicatorApplication();
@@ -31,6 +33,15 @@ namespace NS_Communion {
     	virtual void initialize();
         virtual void run();
         virtual void quit();
+
+    private:
+        NS_ServiceType::ResponseMap* respMap;
+        unsigned char* mapStream;
+        std::string mapDataFile;
+
+    private:
+        u_char* writeInPGM();
+        void saveMapInPGM();
   };
 }
 
